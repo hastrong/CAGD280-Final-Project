@@ -59,7 +59,8 @@ public class PlayerController : MonoBehaviour
         if(context.performed)
         {
             //sphereRigidbody.AddForce(Vector3.up * 5f, ForceMode.Impulse);
-            sphereRigidbody.velocity = new Vector2(sphereRigidbody.velocity.x, jumpPower);
+            //sphereRigidbody.velocity = new Vector2(sphereRigidbody.velocity.x, jumpPower);
+            sphereRigidbody.AddForce(Vector3.up * 5f, ForceMode.Impulse);
         }
     }
 }
