@@ -10,15 +10,13 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private void OnCollisionEnter(Collision collision)
     {
-        
-    }
+        GameObject other = collision.gameObject;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if(other.tag == "Player")
+        {
+            Destroy(this.gameObject);
+        }
     }
 }

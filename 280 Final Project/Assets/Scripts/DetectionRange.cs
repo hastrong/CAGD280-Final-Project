@@ -75,7 +75,7 @@ public class DetectionRange : MonoBehaviour
                 drawInEnemy = false;
             }
 
-            Debug.Log("Enemy Dectected");
+            //Debug.Log("Enemy Dectected");
         }
         else
         {
@@ -84,7 +84,7 @@ public class DetectionRange : MonoBehaviour
                 drawInEnemy = false;
             }
 
-            Debug.Log("Enemy not detected");
+            //Debug.Log("Enemy not detected");
         }
     }
 }
