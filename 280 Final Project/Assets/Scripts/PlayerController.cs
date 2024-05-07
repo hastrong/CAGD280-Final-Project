@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
 
     private float speed = 10f;
 
-    private float jumpPower = 5f;
+    //private float jumpPower = 5f;
 
     /// <summary>
     /// Initializes things in the scene.
