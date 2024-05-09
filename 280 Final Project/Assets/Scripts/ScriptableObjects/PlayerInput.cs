@@ -53,6 +53,15 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Attack"",
+                    ""type"": ""Button"",
+                    ""id"": ""a2a22759-9e6b-4a66-ae47-75386607211c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -132,6 +141,17 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""action"": ""Inhale"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""35f35a6e-b9a8-4305-9d08-7803f85df65a"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Attack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -143,6 +163,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         m_InGame_Move = m_InGame.FindAction("Move", throwIfNotFound: true);
         m_InGame_Jump = m_InGame.FindAction("Jump", throwIfNotFound: true);
         m_InGame_Inhale = m_InGame.FindAction("Inhale", throwIfNotFound: true);
+        m_InGame_Attack = m_InGame.FindAction("Attack", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -207,6 +228,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_InGame_Move;
     private readonly InputAction m_InGame_Jump;
     private readonly InputAction m_InGame_Inhale;
+    private readonly InputAction m_InGame_Attack;
     public struct InGameActions
     {
         private @PlayerInput m_Wrapper;
@@ -214,6 +236,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         public InputAction @Move => m_Wrapper.m_InGame_Move;
         public InputAction @Jump => m_Wrapper.m_InGame_Jump;
         public InputAction @Inhale => m_Wrapper.m_InGame_Inhale;
+        public InputAction @Attack => m_Wrapper.m_InGame_Attack;
         public InputActionMap Get() { return m_Wrapper.m_InGame; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -232,6 +255,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Inhale.started += instance.OnInhale;
             @Inhale.performed += instance.OnInhale;
             @Inhale.canceled += instance.OnInhale;
+            @Attack.started += instance.OnAttack;
+            @Attack.performed += instance.OnAttack;
+            @Attack.canceled += instance.OnAttack;
         }
 
         private void UnregisterCallbacks(IInGameActions instance)
@@ -245,6 +271,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Inhale.started -= instance.OnInhale;
             @Inhale.performed -= instance.OnInhale;
             @Inhale.canceled -= instance.OnInhale;
+            @Attack.started -= instance.OnAttack;
+            @Attack.performed -= instance.OnAttack;
+            @Attack.canceled -= instance.OnAttack;
         }
 
         public void RemoveCallbacks(IInGameActions instance)
@@ -267,5 +296,6 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnInhale(InputAction.CallbackContext context);
+        void OnAttack(InputAction.CallbackContext context);
     }
 }

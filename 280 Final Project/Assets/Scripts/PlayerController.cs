@@ -29,6 +29,8 @@ public class PlayerController : MonoBehaviour
     //if inhale ability is active
     public bool inhale = false;
 
+    public Animation swordAnimation;
+
     
 
     /// <summary>
@@ -93,5 +95,14 @@ public class PlayerController : MonoBehaviour
             
             Debug.Log("Inhale");
         }
+    }
+
+    private void Attack(InputAction.CallbackContext context)
+    {
+        if(context.performed)
+        {
+            swordAnimation.Play("SwordAnimation");
+        }
+        
     }
 }
