@@ -24,12 +24,10 @@ public class CopyAbility : MonoBehaviour
         SwordCopyOff();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    /// <summary>
+    /// Codes for collision events and what happens when certain objects interact
+    /// </summary>
+    /// <param name="collision"></param>
     private void OnCollisionEnter(Collision collision)
     {
         GameObject other = collision.gameObject;
@@ -40,11 +38,17 @@ public class CopyAbility : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Changes regular Kirby to sword Kirby
+    /// </summary>
     private void SwordCopyOn()
     {
         sword.SetActive(true);
     }
 
+    /// <summary>
+    /// disables sword kirby; just regular kirby
+    /// </summary>
     private void SwordCopyOff()
     {
         sword.SetActive(false);

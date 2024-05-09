@@ -241,6 +241,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15d0afc941c980041894cd4a49cbf38f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  poi: {fileID: 1275154152}
+  u: 0.1
+  p0: {x: 0, y: 0, z: 0}
+  p1: {x: 0, y: 0, z: 0}
+  p01: {x: 0, y: 0, z: 0}
 --- !u!1 &192979855
 GameObject:
   m_ObjectHideFlags: 0
@@ -875,7 +880,6 @@ GameObject:
   - component: {fileID: 1275154157}
   - component: {fileID: 1275154158}
   - component: {fileID: 1275154159}
-  - component: {fileID: 1275154160}
   - component: {fileID: 1275154161}
   m_Layer: 0
   m_Name: PlayerContainer
@@ -1011,6 +1015,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c82b9e005726ac4ead65ea618867928, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inhale: 0
 --- !u!114 &1275154159
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1057,24 +1062,27 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 951dab05-3c97-4784-8f6a-19b0626f94da
     m_ActionName: InGame/Jump[/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1275154158}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: Inhale
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: bde73017-5468-47ac-97f7-2076d8ada7f0
+    m_ActionName: InGame/Inhale[/Keyboard/q]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: InGame
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &1275154160
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1275154152}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f21f13ff4b979c40b3716d79f2adaee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemy: {fileID: 14790488}
 --- !u!114 &1275154161
 MonoBehaviour:
   m_ObjectHideFlags: 0

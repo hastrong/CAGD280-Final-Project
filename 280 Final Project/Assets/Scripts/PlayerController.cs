@@ -20,10 +20,16 @@ public class PlayerController : MonoBehaviour
     private Rigidbody sphereRigidbody;
     // References the scriptable object PlayerInput.
     private PlayerInput input;
-
+    //movement speed
     private float speed = 10f;
+    //how far out the range of detection extends
+    private float detectionRange = 10f;
+    //if the enemy can be inhaled/in range or not
+    private bool canSeeEnemy = false;
+    //if inhale ability is active
+    public bool inhale = false;
 
-    //private float jumpPower = 5f;
+    
 
     /// <summary>
     /// Initializes things in the scene.
@@ -47,7 +53,18 @@ public class PlayerController : MonoBehaviour
         //Codes for the wasd Vector3 movement.
         sphereRigidbody.transform.Translate(new Vector3(myVector.x, 0, myVector.y) * speed * Time.deltaTime);
 
-        
+        Collider[] enemyInRange = Physics.OverlapSphere(transform.position, detectionRange);
+
+        foreach (Collider c in enemyInRange)
+        {
+            if (c.CompareTag("Enemy"))
+            {
+                float signedAngle = Vector3.Angle(transform.forward, c.transform.position - transform.position);
+
+                canSeeEnemy = true;
+                Debug.Log("Enemy in range");
+            }
+        }
     }
 
     /// <summary>
@@ -61,6 +78,20 @@ public class PlayerController : MonoBehaviour
             //sphereRigidbody.AddForce(Vector3.up * 5f, ForceMode.Impulse);
             //sphereRigidbody.velocity = new Vector2(sphereRigidbody.velocity.x, jumpPower);
             sphereRigidbody.AddForce(Vector3.up * 5f, ForceMode.Impulse);
+        }
+    }
+
+    /// <summary>
+    /// codes for inhale to work only if the q button is pressed and the enemy is in range
+    /// </summary>
+    /// <param name="context"></param>
+    public void Inhale(InputAction.CallbackContext context)
+    {
+        if(context.performed && canSeeEnemy == true)
+        {
+            inhale = true;
+            
+            Debug.Log("Inhale");
         }
     }
 }

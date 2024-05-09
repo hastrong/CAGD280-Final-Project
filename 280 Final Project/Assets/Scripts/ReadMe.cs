@@ -28,6 +28,6 @@ public class ReadMe : MonoBehaviour
      * Left - A
      * Right - D
      * Jump - Press and hold Spacebar 
-     * Inhale - 
+     * Inhale - Q
      */
 }

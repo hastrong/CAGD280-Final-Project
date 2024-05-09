@@ -434,8 +434,7 @@ MonoBehaviour:
   m_text: "Hello!\nMy name is Hannah Strong and my feature is to recreate Kirby's
     copy ability from the Kirby games. For more information, please see the Read
     Me script attached to this project. Thank you.\n\nHOW TO USE/CONTROLS:\r \nMovement:\r
-    \nUp - W\r\nDown - S\r\nLeft - A\r\nRight - D\r\nJump - Press and hold Spacebar
-    \r\nInhale - "
+    \nUp - W\r\nDown - S\r\nLeft - A\r\nRight - D\r\nInhale - Q"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
